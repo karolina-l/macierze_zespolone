@@ -96,7 +96,7 @@ LZespolona  LZespolona::operator - (const LZespolona  &L2)const
   return wynik;
 }
 
-LZespolona  operator * (double l)const
+LZespolona   LZespolona::operator * (double l)const
 {
   LZespolona L1;
   L1.re=L1.re*l;
@@ -198,11 +198,11 @@ double LZespolona:: modul() const
  */
  bool  LZespolona::operator != (const LZespolona  &L2)const
 {
-  LZespolona L1=*this;
-  return !(L1==L2);
+//LZespolona L1=*this;
+  return !(*this==L2);
 }
 
-bool  operator > (double l)const
+bool   LZespolona::operator > (double l)const
 {
   if(re>l && im>l)
     return true;

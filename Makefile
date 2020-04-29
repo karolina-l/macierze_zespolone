@@ -6,9 +6,10 @@ CPPFLAGS= -c -g -Iinc -Wall -pedantic
 __start__: uklad_rownan
 	./uklad_rownan
 
-uklad_rownan: obj/main.o obj/UkladRownanLiniowych.o obj/Macierz.o obj/TWektor.o obj/mym.o
+uklad_rownan: obj/main.o obj/UkladRownanLiniowych.o obj/Macierz.o obj/TWektor.o obj/mym.o\
+													obj/LZespolona.o
 	g++ -Wall -pedantic -o uklad_rownan obj/main.o obj/Wektor.o\
-                											obj/Macierz.o obj/UkladRownanLiniowych.o obj/mym.o
+                					obj/Macierz.o obj/UkladRownanLiniowych.o obj/mym.o obj/LZespolona.o
 	rm -f obj/*.o
 
 obj/main.o: src/main.cpp inc/UkladRownanLiniowych.hh inc/Macierz.hh inc/TWektor.hh\
@@ -27,7 +28,7 @@ obj/TWektor.o: src/TWektor.cpp inc/TWektor.hh inc/rozmiar.h
 obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
 	g++ ${CPPFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
 
-obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh
+obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh src/LZespolona.cpp inc/LZespolona.hh
 	g++ ${CPPFLAGS} -o obj/mym.o src/mym.cpp
 
 
