@@ -3,6 +3,22 @@
 #include <cstdlib>
 
 
+
+LZespolona::LZespolona()
+{
+  *this.re=0.0;
+  *this.im=0.0;
+}
+
+LZespolona LZespolona::operator = (double l)
+{
+  *this.re=l;
+  *this.im=0.0;
+}
+
+
+
+
 /*!
  * Realizuje dodanie dwoch liczb zespolonych.
  * Argumenty:
@@ -11,9 +27,10 @@
  * Zwraca:
  *    Sume dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  operator + (LZespolona  L1,  LZespolona L2)
+LZespolona LZespolona:: operator + (LZespolona L2)
 {
   LZespolona  Wynik;
+  LZespolona L1=*this;
 
   Wynik.re = L1.re + L2.re;
   Wynik.im = L1.im + L2.im;
@@ -28,9 +45,10 @@ LZespolona  operator + (LZespolona  L1,  LZespolona L2)
  * Zwraca:
  *    Roznice dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  operator - (LZespolona  L1,  LZespolona L2)
+LZespolona  LZespolona::operator - ( LZespolona L2)
 {
   LZespolona  Wynik;
+  LZespolona L1=*this;
 
   Wynik.re = L1.re - L2.re;
   Wynik.im = L1.im - L2.im;
@@ -45,9 +63,10 @@ LZespolona  operator - (LZespolona  L1,  LZespolona L2)
  * Zwraca:
  *    Iloczyn dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  operator * (LZespolona  L1,  LZespolona  L2)
+LZespolona  LZespolona::operator * (LZespolona  L2)
 {
   LZespolona  wynik, czynnik;
+  LZespolona L1=*this;
 
   wynik.re = L1.re * L2.re;
   czynnik.re = (-1) * L1.im * L2.im;
@@ -58,8 +77,9 @@ LZespolona  operator * (LZespolona  L1,  LZespolona  L2)
   return wynik;
 }
 
-double  sprzezenie (LZespolona  L1)
+double LZespolona:: modul()
 {
+  LZespolona L1=*this;
   double wynik;
   wynik = (L1.re * L1.re) + (L1.im * L1.im);
   return wynik;
@@ -73,8 +93,9 @@ double  sprzezenie (LZespolona  L1)
  * Zwraca:
  *    Iloraz dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  operator / (LZespolona  L1,  LZespolona  L2)
+LZespolona LZespolona:: operator / ( LZespolona  L2)
 {
+  LZespolona L1=*this;
   LZespolona wynik, czynnik;
   double  sprz;
   sprz = sprzezenie(L2);
@@ -99,8 +120,9 @@ LZespolona  operator / (LZespolona  L1,  LZespolona  L2)
  * Zwraca:
  *    Iloraz dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  operator / (LZespolona  L1,  double dziel)
+LZespolona  LZespolona::operator / (double dziel)
 {
+  LZespolona L1=*this;
   if(dziel!=0)
   {
     L1.re=L1.re/dziel;
@@ -123,8 +145,9 @@ LZespolona  operator / (LZespolona  L1,  double dziel)
  *    TRUE gdy wartosci sa rowne.
  *    FALSE gdy wartosci nie sa rowne.
  */
-bool operator == (LZespolona  L1,  LZespolona  L2)
+bool LZespolona::operator == ( LZespolona  L2)
 {
+  LZespolona L1=*this;
   double eps = 0.00001;
   if(L1.re-L2.re <eps)
   {
@@ -146,8 +169,9 @@ bool operator == (LZespolona  L1,  LZespolona  L2)
  *    FALSE gdy wartosci sa rowne.
  *    TRUE gdy wartosci nie sa rowne.
  */
-bool  operator != (LZespolona  L1,  LZespolona  L2)
+bool LZespolona:: operator != (LZespolona  L2)
 {
+  LZespolona L1=*this;
   return !(L1==L2);
 }
 ///////////////////////
@@ -209,6 +233,7 @@ std::ostream  &operator << (std::ostream &wys, LZespolona L1)
 /* tworzenie liczby zespolonej*/
 LZespolona utworz(double re, double im)
 {
+  LZespolona L1=*this;
   LZespolona L1;
   L1.re = re;
   L1.im = im;

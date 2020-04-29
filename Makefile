@@ -24,6 +24,9 @@ obj/Macierz.o: src/Macierz.cpp inc/Macierz.hh inc/rozmiar.h
 obj/TWektor.o: src/TWektor.cpp inc/TWektor.hh inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/Wektor.o src/Wektor.cpp
 
+obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
+	g++ ${CPPFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
+
 obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh
 	g++ ${CPPFLAGS} -o obj/mym.o src/mym.cpp
 

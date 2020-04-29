@@ -6,6 +6,7 @@
 #include "UkladRownanLiniowych.hh"
 //#include "TWektor.hh"
 #include "mym.cpp"
+#include "LZespolona.hh"
 
 
 using namespace std;
@@ -38,14 +39,14 @@ int main()
 
 
 //main do szablonu, ruszac//
-TWektor<double, 5> W1, W3;
-TWektor<double, 5> W2;
-double tabl[ROZMIAR] = {3.002, 5.01, 1.002, 2.9};
-double x=2;
+TWektor<LZespolona, 5> W1;//, W3;
+//TWektor<LZespolona, 5> W2;
+//double tabl[ROZMIAR] = {3.002, 5.01, 1.002, 2.9};
+//double x=2;
 
 cin>>W1;    //sprawdzenie >>
 cout<<endl<<W1<<endl;  //sprawdzenie <<
-W2=TWektor<double, 5>(tabl); // sprawdzenie konstruktora z parametrem wejsciowym
+/*W2=TWektor<double, 5>(tabl); // sprawdzenie konstruktora z parametrem wejsciowym
 cout<<endl<<W2<<endl;
 cout<<W1+W2<<endl;    // sprawdzenie +
 W3+=W1;   //sprawdzenie +=
@@ -64,7 +65,7 @@ if(W2!=W3)
 {
   cout<<"nierowne"<<endl;
 }
-else cout<<"zle"<<endl;
+else cout<<"zle"<<endl;*/
 
 cout<<"KONIEC"<<endl;
 

@@ -12,14 +12,40 @@
 /*!
  * Modeluje pojecie liczby zespolonej
  */
-struct  LZespolona {
+class LZespolona {
   double   re;    /*! Pole repezentuje czesc rzeczywista. */
   double   im;    /*! Pole repezentuje czesc urojona. */
+public:
+LZespolona();
+//LZespolona(double l);
+LZespolona  operator = (double l);
+LZespolona  operator + (const LZespolona  L2) const;
+LZespolona  operator - (const LZespolona  L2)const;
+LZespolona  operator * (const LZespolona  L2)const;
+LZespolona  operator / (const LZespolona  L2)const;
+LZespolona  operator / ( double dziel)const;
+bool  operator == ( const LZespolona  L2)const;
+bool  operator != (const LZespolona  L2)const;
+double  sprzezenie () const;
+LZespolona  utworz (double re, double im);
+
 };
 
 
+std::istream &operator >> (std ::istream &czyt,const LZespolona &L1);
+std::ostream &operator << (std ::ostream &wys, const LZespolona L1);
+#endif
 
 
+/*
+struct  LZespolona {
+  double   re;    /*! Pole repezentuje czesc rzeczywista. */
+//  double   im;    /*! Pole repezentuje czesc urojona. */
+/*};
+
+
+
+LZespolona  operator = (LZespolona  L1, double l);
 LZespolona  operator + (LZespolona  L1,  LZespolona  L2);
 LZespolona  operator - (LZespolona  L1,  LZespolona  L2);
 LZespolona  operator * (LZespolona  L1,  LZespolona  L2);
@@ -30,7 +56,7 @@ bool  operator != (LZespolona  L1,  LZespolona  L2);
 double  sprzezenie (LZespolona  L1);
 std::istream &operator >> (std ::istream &czyt, LZespolona &L1);
 std::ostream &operator << (std ::ostream &wys, LZespolona L1);
-LZespolona  utworz (double re, double im);
+explicit LZespolona  utworz (double re, double im);
 
 
-#endif
+*/

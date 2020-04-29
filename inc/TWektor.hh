@@ -1,5 +1,6 @@
 #include <iostream>
 #include "rozmiar.h"
+#include "LZespolona.hh"
 
 using namespace std;
 
