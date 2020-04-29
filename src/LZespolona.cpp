@@ -1,6 +1,7 @@
 #include "LZespolona.hh"
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 
 
@@ -48,12 +49,10 @@ LZespolona  LZespolona::operator + (const LZespolona  &L2) const
   return Wynik;
 }
 
-LZespolona  LZespolona:: operator += (const LZespolona  &L2) const
+LZespolona  LZespolona:: operator += (const LZespolona  &L2)
 {
-  LZespolona L1=*this;
-  L1.re=L1.re+L2.re;
-  L1.im=L1.im+L2.im;
-  return L1;
+  *this=*this+L2;
+  return *this;
 }
 
 /*!
@@ -99,8 +98,8 @@ LZespolona  LZespolona::operator - (const LZespolona  &L2)const
 LZespolona   LZespolona::operator * (double l)const
 {
   LZespolona L1;
-  L1.re=L1.re*l;
-  L1.im=L1.im*l;
+  L1.re=re*l;
+  L1.im=im*l;
   return L1;
 }
 
@@ -174,12 +173,14 @@ double LZespolona:: modul() const
  */
  bool  LZespolona::operator == ( const LZespolona  &L2)const
 {
-  LZespolona L1=*this;
-  double eps = 0.00001;
-  if(L1.re-L2.re <eps)
+  //LZespolona L1=*this;
+  double eps = 0.00000001;
+  if(abs(re-L2.re)<eps)
   {
-    if(L1.im-L2.im<eps)
+    if(abs(im-L2.im)<eps)
     return true;
+    else
+    return false;
   }
   else
   {

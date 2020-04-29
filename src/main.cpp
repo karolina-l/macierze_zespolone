@@ -39,14 +39,23 @@ int main()
 
 
 //main do szablonu, ruszac//
-//TWektor<LZespolona, 5> W1, W2,W3;
+TWektor<LZespolona, 5> W1, W2,W3;
 //TWektor<LZespolona, 5> W2;
 //double tabl[ROZMIAR] = {3.002, 5.01, 1.002, 2.9};
 double x=2.0;
-TWektor<double, 5> W1, W2,W3;
-
-cin>>W1;
-cin>> W2;   //sprawdzenie >>
+fstream plik;
+//TWektor<double, 5> W1, W2,W3;
+plik.open("w1.txt", ios:: in); //otwieram plik z danymi
+if(plik.good() == true) // jesli plik zostal poprawnie otwarty
+{
+  plik>>W1;            //UkladRownanL przybiera dane zawarte w pliku
+}
+plik.open("w2.txt", ios:: in); //otwieram plik z danymi
+if(plik.good() == true) // jesli plik zostal poprawnie otwarty
+{
+  plik>>W2;             //UkladRownanL przybiera dane zawarte w pliku
+}
+   //sprawdzenie >>
 cout<<endl<<W1<<endl;  //sprawdzenie <<
 //W2=TWektor<double, 5>(tabl); // sprawdzenie konstruktora z parametrem wejsciowym
 cout<<endl<<W2<<endl;
@@ -67,7 +76,7 @@ if(W2==W3)
   cout<<"rowne"<<endl;
 }
 else cout<<"zle"<<endl;
-if(W2!=W3)
+if(W1!=W3)
 {
   cout<<"nierowne"<<endl;
 }

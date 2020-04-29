@@ -22,7 +22,7 @@ LZespolona  operator = (double l);
 double get_im()const;
 double get_re()const;
 LZespolona  operator + (const LZespolona  &L2) const;
-LZespolona  operator += (const LZespolona  &L2) const;
+LZespolona  operator += (const LZespolona  &L2);
 LZespolona  operator - (const LZespolona  &L2)const;
 LZespolona  operator * (const LZespolona  &L2)const;
 LZespolona  operator * (double l)const;
