@@ -6,19 +6,30 @@
 
 LZespolona::LZespolona()
 {
-  *this.re=0.0;
-  *this.im=0.0;
+  re=0.0;
+  im=0.0;
 }
-
-LZespolona LZespolona::operator = (double l)
+LZespolona::LZespolona(double l, double m)
 {
-  *this.re=l;
-  *this.im=0.0;
+  re=l;
+  im=m;
 }
 
+ LZespolona LZespolona::operator = (double l)
+ {
+   re=l;
+   im=0.0;
+   return *this;
+ }
 
-
-
+double LZespolona::get_im()const
+{
+  return im;
+}
+double LZespolona::get_re()const
+{
+  return re;
+}
 /*!
  * Realizuje dodanie dwoch liczb zespolonych.
  * Argumenty:
@@ -27,7 +38,7 @@ LZespolona LZespolona::operator = (double l)
  * Zwraca:
  *    Sume dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona LZespolona:: operator + (LZespolona L2)
+LZespolona  LZespolona::operator + (const LZespolona  &L2) const
 {
   LZespolona  Wynik;
   LZespolona L1=*this;
@@ -45,7 +56,7 @@ LZespolona LZespolona:: operator + (LZespolona L2)
  * Zwraca:
  *    Roznice dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  LZespolona::operator - ( LZespolona L2)
+LZespolona  LZespolona::operator - (const LZespolona  &L2)const
 {
   LZespolona  Wynik;
   LZespolona L1=*this;
@@ -63,7 +74,7 @@ LZespolona  LZespolona::operator - ( LZespolona L2)
  * Zwraca:
  *    Iloczyn dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  LZespolona::operator * (LZespolona  L2)
+ LZespolona  LZespolona::operator * (const LZespolona  &L2)const
 {
   LZespolona  wynik, czynnik;
   LZespolona L1=*this;
@@ -77,7 +88,7 @@ LZespolona  LZespolona::operator * (LZespolona  L2)
   return wynik;
 }
 
-double LZespolona:: modul()
+double LZespolona:: modul() const
 {
   LZespolona L1=*this;
   double wynik;
@@ -93,12 +104,12 @@ double LZespolona:: modul()
  * Zwraca:
  *    Iloraz dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona LZespolona:: operator / ( LZespolona  L2)
+ LZespolona  LZespolona::operator / (const LZespolona  &L2)const
 {
   LZespolona L1=*this;
   LZespolona wynik, czynnik;
   double  sprz;
-  sprz = sprzezenie(L2);
+  sprz = L2.modul();
   if(sprz==0)
   {
     std::cerr<<"nie można dzielić przez 0"<<std::endl;
@@ -120,7 +131,7 @@ LZespolona LZespolona:: operator / ( LZespolona  L2)
  * Zwraca:
  *    Iloraz dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona  LZespolona::operator / (double dziel)
+ LZespolona  LZespolona::operator / ( double dziel)const
 {
   LZespolona L1=*this;
   if(dziel!=0)
@@ -145,7 +156,7 @@ LZespolona  LZespolona::operator / (double dziel)
  *    TRUE gdy wartosci sa rowne.
  *    FALSE gdy wartosci nie sa rowne.
  */
-bool LZespolona::operator == ( LZespolona  L2)
+ bool  LZespolona::operator == ( const LZespolona  &L2)const
 {
   LZespolona L1=*this;
   double eps = 0.00001;
@@ -169,7 +180,7 @@ bool LZespolona::operator == ( LZespolona  L2)
  *    FALSE gdy wartosci sa rowne.
  *    TRUE gdy wartosci nie sa rowne.
  */
-bool LZespolona:: operator != (LZespolona  L2)
+ bool  LZespolona::operator != (const LZespolona  &L2)const
 {
   LZespolona L1=*this;
   return !(L1==L2);
@@ -184,7 +195,7 @@ bool LZespolona:: operator != (LZespolona  L2)
  * Zwraca:
  *    wartosc strumienia
  */
- std::istream  &operator >> (std::istream & czyt, LZespolona &L1)
+ std::istream &operator >> (std ::istream &czyt, LZespolona &L1)
 {
   char znak;
   double a,b;
@@ -209,8 +220,7 @@ bool LZespolona:: operator != (LZespolona  L2)
 
     if(!czyt.fail())
     {
-      L1.re=a;
-      L1.im=b;
+      L1=LZespolona(a,b);
     }
   return czyt;
 }
@@ -223,19 +233,23 @@ bool LZespolona:: operator != (LZespolona  L2)
  * Zwraca:
  *    wartosc strumienia
  */
-std::ostream  &operator << (std::ostream &wys, LZespolona L1)
+ std::ostream &operator << (std ::ostream &wys, const LZespolona &L1)
 {
-    wys << "(" << L1.re  << std::showpos << L1.im  << std::noshowpos <<  "i)";
+  double a, b;
+  a=L1.get_re();
+  b=L1.get_im();
+
+    wys << "(" << a  << std::showpos << b  << std::noshowpos <<  "i)";
     return wys;
 }
 
 //////////////////////
 /* tworzenie liczby zespolonej*/
-LZespolona utworz(double re, double im)
+/*LZespolona LZespolona::utworz(double re, double im)
 {
   LZespolona L1=*this;
   LZespolona L1;
   L1.re = re;
   L1.im = im;
   return L1;
-}
+}*/

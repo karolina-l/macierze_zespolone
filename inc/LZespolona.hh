@@ -17,23 +17,25 @@ class LZespolona {
   double   im;    /*! Pole repezentuje czesc urojona. */
 public:
 LZespolona();
-//LZespolona(double l);
+LZespolona(double l, double m);
 LZespolona  operator = (double l);
-LZespolona  operator + (const LZespolona  L2) const;
-LZespolona  operator - (const LZespolona  L2)const;
-LZespolona  operator * (const LZespolona  L2)const;
-LZespolona  operator / (const LZespolona  L2)const;
+double get_im()const;
+double get_re()const;
+LZespolona  operator + (const LZespolona  &L2) const;
+LZespolona  operator - (const LZespolona  &L2)const;
+LZespolona  operator * (const LZespolona  &L2)const;
+LZespolona  operator / (const LZespolona  &L2)const;
 LZespolona  operator / ( double dziel)const;
-bool  operator == ( const LZespolona  L2)const;
-bool  operator != (const LZespolona  L2)const;
-double  sprzezenie () const;
-LZespolona  utworz (double re, double im);
+bool  operator == ( const LZespolona  &L2)const;
+bool  operator != (const LZespolona  &L2)const;
+double  modul() const;
+//LZespolona  utworz (double re, double im);
 
 };
 
 
-std::istream &operator >> (std ::istream &czyt,const LZespolona &L1);
-std::ostream &operator << (std ::ostream &wys, const LZespolona L1);
+std::istream &operator >> (std ::istream &czyt,  LZespolona &L1);
+std::ostream &operator << (std ::ostream &wys, const LZespolona& L1);
 #endif
 
 
