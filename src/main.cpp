@@ -39,15 +39,15 @@ int main()
 
 
 //main do szablonu, ruszac//
-TWektor<LZespolona, 5> W1;//, W3;
+TWektor<LZespolona, 5> W1, W2,W3;
 //TWektor<LZespolona, 5> W2;
 //double tabl[ROZMIAR] = {3.002, 5.01, 1.002, 2.9};
-//double x=2;
+double x=2;
 
 cin>>W1;    //sprawdzenie >>
 cout<<endl<<W1<<endl;  //sprawdzenie <<
-/*W2=TWektor<double, 5>(tabl); // sprawdzenie konstruktora z parametrem wejsciowym
-cout<<endl<<W2<<endl;
+//W2=TWektor<double, 5>(tabl); // sprawdzenie konstruktora z parametrem wejsciowym
+/*cout<<endl<<W2<<endl;
 cout<<W1+W2<<endl;    // sprawdzenie +
 W3+=W1;   //sprawdzenie +=
 cout<<W3<<endl;

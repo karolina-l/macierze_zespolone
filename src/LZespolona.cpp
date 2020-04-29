@@ -48,6 +48,14 @@ LZespolona  LZespolona::operator + (const LZespolona  &L2) const
   return Wynik;
 }
 
+LZespolona  LZespolona:: operator += (const LZespolona  &L2) const
+{
+  LZespolona L1=*this;
+  L1.re=L1.re+L2.re;
+  L1.im=L1.im+L2.im;
+  return L1;
+}
+
 /*!
  * Realizuje odejmowanie dwoch liczb zespolonych.
  * Argumenty:
@@ -86,6 +94,14 @@ LZespolona  LZespolona::operator - (const LZespolona  &L2)const
   wynik.re += czynnik.re;
   wynik.im += czynnik.im;
   return wynik;
+}
+
+LZespolona  operator * (double l)const
+{
+  LZespolona L1;
+  L1.re=L1.re*l;
+  L1.im=L1.im*l;
+  return L1;
 }
 
 double LZespolona:: modul() const
@@ -184,6 +200,14 @@ double LZespolona:: modul() const
 {
   LZespolona L1=*this;
   return !(L1==L2);
+}
+
+bool  operator > (double l)const
+{
+  if(re>l && im>l)
+    return true;
+  else
+    return false;
 }
 ///////////////////////
 

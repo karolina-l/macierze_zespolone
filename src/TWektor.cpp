@@ -50,7 +50,8 @@ TYP & TWektor<TYP,ROZM>::operator[] (int index)
 template <typename TYP, int ROZM>
 TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator + (const TWektor<TYP, ROZM> & W) const
 {
-  TYP nowy[ROZMIAR]={0.0};
+  TYP nowy[ROZMIAR];
+//  nowy={0.0};
   for(int i=0; i<ROZMIAR; i++)
   {
     nowy[i]=this->Twek[i]+W.Twek[i];
@@ -71,7 +72,8 @@ TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator += (const TWektor<TYP, ROZM> & W)
 template <typename TYP, int ROZM>
 TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator - (const TWektor<TYP, ROZM> & W) const
 {
-  TYP nowy[ROZMIAR]={0.0};
+  TYP nowy[ROZMIAR];
+//  nowy={0.0};
   for(int i=0; i<ROZMIAR; i++)
   {
     nowy[i]=this->Twek[i]-W.Twek[i];
@@ -82,8 +84,10 @@ TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator - (const TWektor<TYP, ROZM> & W) 
 template <typename TYP, int ROZM>
 TYP TWektor<TYP,ROZM>::operator * (const TWektor<TYP, ROZM> & W) const
 {
-  TYP nowy[ROZMIAR]={0.0};
-  TYP wynik=0.0;
+  TYP nowy[ROZMIAR];
+  //nowy={0.0};
+  TYP wynik;
+  wynik=0.0;
   for(int i=0; i<ROZMIAR; i++)
   {
     nowy[i]=this->Twek[i]*W.Twek[i];
@@ -95,7 +99,8 @@ TYP TWektor<TYP,ROZM>::operator * (const TWektor<TYP, ROZM> & W) const
 template <typename TYP, int ROZM>
 TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator * (double l) const
 {
-  TYP nowy[ROZMIAR]={0.0};
+  TYP nowy[ROZMIAR];
+//  nowy={0.0};
   for(int i=0; i<ROZMIAR; i++)
   {
     nowy[i]=this->Twek[i]*l;
@@ -106,7 +111,7 @@ TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator * (double l) const
 template <typename TYP, int ROZM>
 TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator / (double l) const
 {
-  TYP nowy[ROZMIAR]={0.0};
+  TYP nowy[ROZMIAR];//={0.0};
   for(int i=0; i<ROZMIAR; i++)
   {
     nowy[i]=this->Twek[i]/l;
@@ -120,7 +125,7 @@ bool TWektor<TYP,ROZM>::operator == (const TWektor<TYP, ROZM> & W) const
   double epsilon=0.000001;
   for (int i=0; i<ROZMIAR; ++i)
   {
-    if(abs(Twek[i]-W.Twek[i])>epsilon)
+    if(Twek[i]-W.Twek[i]>epsilon ||W.Twek[i]-Twek[i]>epsilon)
     return false;
   }
   return true;
@@ -131,7 +136,7 @@ bool TWektor<TYP,ROZM>::operator != (const TWektor<TYP, ROZM> & W) const
 {
     return !(*this==W);
 }
-
+/*
 template <typename TYP, int ROZM>
 double TWektor<TYP,ROZM>::dlugosc() const //modul
 {
@@ -143,12 +148,12 @@ double TWektor<TYP,ROZM>::dlugosc() const //modul
   wynik=sqrt(a);
   return wynik;
 }
-
+*/
 
 template <typename TYP, int ROZM>
 istream & operator >> (istream & str, TWektor<TYP, ROZM> & W)
 {
-  TYP pom[ROZMIAR]={0};
+  TYP pom[ROZMIAR];//={0.0};
   for(int i=0; i<ROZMIAR; i++)
   {
     str >> pom[i];

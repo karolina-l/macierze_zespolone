@@ -22,13 +22,18 @@ LZespolona  operator = (double l);
 double get_im()const;
 double get_re()const;
 LZespolona  operator + (const LZespolona  &L2) const;
+LZespolona  operator += (const LZespolona  &L2) const;
 LZespolona  operator - (const LZespolona  &L2)const;
 LZespolona  operator * (const LZespolona  &L2)const;
+LZespolona  operator * (double l)const;
 LZespolona  operator / (const LZespolona  &L2)const;
 LZespolona  operator / ( double dziel)const;
 bool  operator == ( const LZespolona  &L2)const;
 bool  operator != (const LZespolona  &L2)const;
+bool  operator > (double l)const;
 double  modul() const;
+
+
 //LZespolona  utworz (double re, double im);
 
 };
