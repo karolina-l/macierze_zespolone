@@ -26,7 +26,7 @@ class TMacierzKw  {
 
   public:
   TMacierzKw();
-  //TMacierzKw(const TWektor  tab[ROZMIAR]);
+  TMacierzKw(const TWektor<TYP,ROZM>  tab[ROZMIAR]);
   const TWektor<TYP, ROZM> & operator[] (int index) const;
   TWektor<TYP, ROZM> & operator[] (int index);
   const TMacierzKw  operator + (const TMacierzKw & M);

@@ -1,3 +1,6 @@
+#ifndef WEKTOR_HH
+#define WEKTOR_HH
+
 #include <iostream>
 #include "rozmiar.h"
 #include "LZespolona.hh"
@@ -27,3 +30,7 @@ template <typename TYP, int ROZM>
 istream & operator >> (istream & str, TWektor<TYP, ROZMIAR> & W);
 template <typename TYP, int ROZM>
 ostream & operator << (ostream & str, const TWektor<TYP, ROZMIAR> & W);
+
+
+
+#endif

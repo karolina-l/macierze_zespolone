@@ -11,7 +11,7 @@ TMacierzKw<TYP,ROZM>:: TMacierzKw()
 {
   for (int i=0; i<ROZMIAR; i++)
   {
-    mtx[i]=TWektor();
+    mtx[i]=TWektor<TYP,ROZM>();
   }
 }
 
