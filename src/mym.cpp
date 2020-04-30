@@ -1,4 +1,5 @@
 #include "TWektor.cpp"
+#include "TMacierz.cpp"
 #include "LZespolona.hh"
 
 using namespace std;

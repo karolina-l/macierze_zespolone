@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 //#include "Wektor.hh"
-#include "TMacierz.hh"
+//#include "TMacierz.hh"
 #include "rozmiar.h"
 //#include "UkladRownanLiniowych.hh"
 //#include "TWektor.hh"
