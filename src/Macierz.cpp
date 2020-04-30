@@ -1,6 +1,11 @@
 #include "Macierz.hh"
 #include <cmath>
 
+/*
+  Komstruktor klasy MacierzKw;
+  tworzy MacierzKw, której elementy
+  sa rowne 0.0
+*/
 MacierzKw:: MacierzKw()
 {
   for (int i=0; i<ROZMIAR; i++)
@@ -9,6 +14,11 @@ MacierzKw:: MacierzKw()
   }
 }
 
+/*
+  Konstruktor klasy MacierzKw;
+  tworzy MacierzKw, ktorego elementy maja wartosc
+  rowna elementom danej tablicy tab
+*/
 MacierzKw:: MacierzKw(const Wektor tab[ROZMIAR])
 {
   for(int i=0; i<ROZMIAR; i++)
@@ -17,6 +27,13 @@ MacierzKw:: MacierzKw(const Wektor tab[ROZMIAR])
   }
 }
 
+  /*
+    Przeciazenie operatora "[]"
+    zwraca indeks obecnego elementu macierzy
+    lub zwraca komunikat: "indeks poza zakresem"
+    i konczy dzialanie programu, by uchronic
+    przed naruszeniem pamieci
+  */
 const Wektor & MacierzKw:: operator[] (int index) const
 {
   if (index < 0 || index > ROZMIAR)
@@ -30,6 +47,13 @@ const Wektor & MacierzKw:: operator[] (int index) const
   }
 }
 
+/*
+  Przeciazenie operatora "[]"
+  zwraca indeks obecnego elementu macierzy
+  lub zwraca komunikat: "indeks poza zakresem"
+  i konczy dzialanie programu, by uchronic
+  przed naruszeniem pamieci
+*/
 Wektor & MacierzKw::operator[] (int index)
 {
   if (index < 0 || index > ROZMIAR)
@@ -43,6 +67,13 @@ Wektor & MacierzKw::operator[] (int index)
   }
 }
 
+
+/*
+  Przeciazenie operatora "+"
+  argumenty to 2 macierze
+  zwraca nową macierz, ktorej elementy sa
+  suma poszczegolnych elementow macierzy skladowych
+*/
 const MacierzKw MacierzKw:: operator + (const MacierzKw & M)
 {
   Wektor W[ROZMIAR];
@@ -56,6 +87,12 @@ const MacierzKw MacierzKw:: operator + (const MacierzKw & M)
   return(MacierzKw(W));
 }
 
+/*
+  Przeciazenie operatora "-"
+  argumenty to 2 macierze
+  zwraca nową macierz, ktorej elementy sa
+  roznica poszczegolnych elementow macierzy skladowych
+*/
 const MacierzKw MacierzKw:: operator - (const MacierzKw & M)
 {
   Wektor W[ROZMIAR];
@@ -70,6 +107,12 @@ const MacierzKw MacierzKw:: operator - (const MacierzKw & M)
   return(MacierzKw(W));
 }
 
+/*
+  Przeciazenie operatora "*"
+  argumenty to 2 macierze
+  zwraca nową macierz, ktorej elementy sa
+  iloczynem poszczegolnych elementow macierzy skladowych
+*/
 const MacierzKw MacierzKw::  operator * (const MacierzKw & M)
 {
   MacierzKw MA=M.transponuj();
@@ -88,6 +131,12 @@ const MacierzKw MacierzKw::  operator * (const MacierzKw & M)
   return w;
 }
 
+/*
+  Przeciazenie operatora "*"
+  argumenty to macierz i wektor
+  zwraca nowy wektor, ktorego elementy sa
+  iloczynem poszczegolnych elementow wektora i macierzy skladowej
+*/
 const Wektor MacierzKw::operator * (const Wektor & W)
 {
   MacierzKw MA=*this;
@@ -102,6 +151,13 @@ const Wektor MacierzKw::operator * (const Wektor & W)
   return(wyn);
 }
 
+/*
+  Przeciazenie operatora "*"
+  argumenty to macierz i double
+  zwraca nowa macierz, ktorej elementy sa
+  iloczynem poszczegolnych elementow macierzy skladowej
+  i liczby l
+*/
 const MacierzKw MacierzKw::  operator * (double l)
 {
   Wektor w[ROZMIAR];
@@ -112,6 +168,10 @@ const MacierzKw MacierzKw::  operator * (double l)
   return(MacierzKw(w));
 }
 
+/*
+  metoda odwroc zwraca nowa macierz
+  odwrotna do danej
+*/
 MacierzKw MacierzKw::odwroc() const
 {
  MacierzKw pom=*this;
@@ -177,6 +237,11 @@ MacierzKw MacierzKw::odwroc() const
  return MacierzKw(W);
 }
 
+/*
+  metoda zwroc_kolumne zwraca wektor,
+  rowny i-tej kolumnie macierzy
+  na podstawie przekazanego nr indeksu
+*/
 Wektor MacierzKw:: zwroc_kolumne(int ind)
 {
   double zwr[ROZMIAR];
@@ -187,6 +252,11 @@ Wektor MacierzKw:: zwroc_kolumne(int ind)
   return Wektor(zwr);
 }
 
+/*
+  metoda zmien_kolumne
+  zmienia i-ta kolumne macierzy na dany wektor
+  na podstawie przekazanego nr indeksu
+*/
 void MacierzKw::zmien_kolumne(int ind, Wektor W)
 {
   for (int i=0; i<ROZMIAR; i++)
@@ -195,6 +265,10 @@ void MacierzKw::zmien_kolumne(int ind, Wektor W)
   }
 }
 
+/*
+metoda wyznacznik zwraca liczbe double,
+ktora jest wyznacznikiem danej miacierzy
+*/
 double MacierzKw:: wyznacznik()
 {
   MacierzKw pom=*this;
@@ -223,6 +297,11 @@ double MacierzKw:: wyznacznik()
   return wyn;
 }
 
+/*
+  metoda transponuj zwraca nowa macierz
+  ktorej kolumny zamienione zostaly z wierszami
+  wzgledem danej macierzy
+*/
 MacierzKw MacierzKw::transponuj() const
 {
   Wektor W[ROZMIAR];
@@ -234,6 +313,11 @@ MacierzKw MacierzKw::transponuj() const
   return(MacierzKw(W));
 }
 
+/*
+  Przeciazenie operatora ">>"
+  dla klasy MacierzKw
+  zwraca strumien przesuniecia bitowego w prawo
+*/
 istream & operator >> (istream &str, MacierzKw &M)
 {
   Wektor W;
@@ -245,6 +329,11 @@ istream & operator >> (istream &str, MacierzKw &M)
   return str;
 }
 
+/*
+  Przeciazenie operatora "<<"
+  dla klasy MacierzKw
+  zwraca strumien przesuniecia bitowego w prawo
+*/
 ostream & operator << (ostream &str, const MacierzKw &M)
 {
   for (int i=0; i<ROZMIAR; i++)

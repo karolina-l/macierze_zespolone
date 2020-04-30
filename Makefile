@@ -19,8 +19,8 @@ obj/main.o: src/main.cpp inc/UkladRownanLiniowych.hh inc/Macierz.hh inc/TWektor.
 obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh
 	g++ ${CPPFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
 
-obj/Macierz.o: src/Macierz.cpp inc/Macierz.hh inc/rozmiar.h
-	g++ ${CPPFLAGS} -o obj/Macierz.o src/Macierz.cpp
+obj/TMacierz.o: src/TMacierz.cpp inc/TMacierz.hh inc/rozmiar.h
+	g++ ${CPPFLAGS} -o obj/TMacierz.o src/TMacierz.cpp
 
 obj/TWektor.o: src/TWektor.cpp inc/TWektor.hh inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/Wektor.o src/Wektor.cpp
@@ -28,7 +28,7 @@ obj/TWektor.o: src/TWektor.cpp inc/TWektor.hh inc/rozmiar.h
 obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
 	g++ ${CPPFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
 
-obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh src/LZespolona.cpp inc/LZespolona.hh
+obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh src/LZespolona.cpp inc/LZespolona.hh inc/TMacierz.hh src/TMacierz.cpp
 	g++ ${CPPFLAGS} -o obj/mym.o src/mym.cpp
 
 

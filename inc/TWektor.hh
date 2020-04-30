@@ -21,7 +21,7 @@ public:
   bool operator == (const TWektor & W) const;
   bool operator != (const TWektor & W) const;
 
-  double dlugosc() const; //modul
+  //double dlugosc() const; //modul
 };
 template <typename TYP, int ROZM>
 istream & operator >> (istream & str, TWektor<TYP, ROZMIAR> & W);

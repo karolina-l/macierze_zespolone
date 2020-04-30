@@ -119,15 +119,17 @@ TWektor<TYP, ROZM> TWektor<TYP,ROZM>::operator / (double l) const
   return TWektor(nowy);
 }
 
-template <typename TYP, int ROZM>
+/*template <typename TYP, int ROZM>
 bool TWektor<TYP,ROZM>::operator == (const TWektor<TYP, ROZM> & W) const
 {
   double epsilon=0.000001;
   for (int i=0; i<ROZMIAR; ++i)
   {
     if(Twek[i]-W.Twek[i]>epsilon ||W.Twek[i]-Twek[i]>epsilon)
-    return false;
+    {//cout<<"T fałsz"<<endl;
+    return false;}
   }
+  //cout<<"T prawda"<<endl;
   return true;
 }
 
@@ -135,7 +137,7 @@ template <typename TYP, int ROZM>
 bool TWektor<TYP,ROZM>::operator != (const TWektor<TYP, ROZM> & W) const
 {
     return !(*this==W);
-}
+}*/
 /*
 template <typename TYP, int ROZM>
 double TWektor<TYP,ROZM>::dlugosc() const //modul

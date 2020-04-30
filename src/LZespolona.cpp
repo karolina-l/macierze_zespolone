@@ -175,16 +175,14 @@ double LZespolona:: modul() const
 {
   //LZespolona L1=*this;
   double eps = 0.00000001;
-  if(abs(re-L2.re)<eps)
+  if(abs(re-L2.re)<eps && abs(im-L2.im)<eps)
   {
-    if(abs(im-L2.im)<eps)
+    std::cout<<"LZ rowne"<<std::endl;
     return true;
-    else
-    return false;
   }
   else
   {
-    //std::cout<<"falsz";
+    std::cout<<"LZ falsz"<<std::endl;
     return false;
   }
 }

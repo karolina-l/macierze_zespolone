@@ -1,12 +1,13 @@
 #include <iostream>
 #include <fstream>
 //#include "Wektor.hh"
-#include "Macierz.hh"
+#include "TMacierz.hh"
 #include "rozmiar.h"
-#include "UkladRownanLiniowych.hh"
+//#include "UkladRownanLiniowych.hh"
 //#include "TWektor.hh"
 #include "mym.cpp"
 #include "LZespolona.hh"
+
 
 
 using namespace std;
@@ -39,53 +40,20 @@ int main()
 
 
 //main do szablonu, ruszac//
-TWektor<LZespolona, 5> W1, W2,W3;
-//TWektor<LZespolona, 5> W2;
-//double tabl[ROZMIAR] = {3.002, 5.01, 1.002, 2.9};
-double x=2.0;
-fstream plik;
-//TWektor<double, 5> W1, W2,W3;
-plik.open("w1.txt", ios:: in); //otwieram plik z danymi
-if(plik.good() == true) // jesli plik zostal poprawnie otwarty
-{
-  plik>>W1;            //UkladRownanL przybiera dane zawarte w pliku
-}
-plik.open("w2.txt", ios:: in); //otwieram plik z danymi
-if(plik.good() == true) // jesli plik zostal poprawnie otwarty
-{
-  plik>>W2;             //UkladRownanL przybiera dane zawarte w pliku
-}
-   //sprawdzenie >>
-cout<<endl<<W1<<endl;  //sprawdzenie <<
-//W2=TWektor<double, 5>(tabl); // sprawdzenie konstruktora z parametrem wejsciowym
-cout<<endl<<W2<<endl;
-cout<<W1+W2<<endl;    // sprawdzenie +
-W2+=W1;   //sprawdzenie +=
-cout<<"+="<<W2<<endl;
-cout<<W1-W2<<endl;    //sprawdzenie -
-cout<<"lz*lz"<<W1*W2<<endl;    //sprawdzenie *
-cout<<W1*x<<endl;     //sprawdzenie * double
-cout<<W1/x<<endl;     //sprawdzenie /
-W3=W1;
-cout<<"1"<<W1<<endl;
-cout<<"2"<<W2<<endl;
-cout<<"3"<<W3<<endl;
+TMacierz<double,5> M1, M2;
 
-if(W2==W3)
+
+/*if(plik1.good() == true) // jesli plik zostal poprawnie otwarty
 {
-  cout<<"rowne"<<endl;
+  plik1>>M1;            //UkladRownanL przybiera dane zawarte w pliku
 }
-else cout<<"zle"<<endl;
-if(W1!=W3)
+plik2.open("w2.txt", ios:: in); //otwieram plik z danymi
+if(plik2.good() == true) // jesli plik zostal poprawnie otwarty
 {
-  cout<<"nierowne"<<endl;
-}
-else cout<<"zle"<<endl;
-if(W1[0]>x)
-{
-  cout<<"zle";
-}
-else cout<<"mniejsze"<<endl;
+  plik2>>M2;             //UkladRownanL przybiera dane zawarte w pliku
+}*/
+cout<<M1;
+
 cout<<"KONIEC"<<endl;
 
 
@@ -94,6 +62,7 @@ cout<<"KONIEC"<<endl;
 
 
 
-
+//plik1.close();
+//plik2.close();
   return 0;
 }
