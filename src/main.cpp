@@ -72,7 +72,7 @@ M2.zmien_kolumne(0,W);
 cout<<"k0: "<<M2<<endl<<endl;*/
 cin>>M1;
 cout<<endl<<M1<<endl;
-wyz=M2.wyznacznik();
+wyz=M1.wyznacznik();
 cout<<"wyz: "<<wyz<<endl;
 
 cout<<"KONIEC"<<endl;
