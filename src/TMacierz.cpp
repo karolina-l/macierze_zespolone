@@ -181,7 +181,7 @@ const TMacierzKw<TYP,ROZM> TMacierzKw<TYP,ROZM>::  operator * (double l)
   metoda odwroc zwraca nowa macierz
   odwrotna do danej
 */
-template <typename TYP, int ROZM>
+/*template <typename TYP, int ROZM>
 TMacierzKw<TYP,ROZM> TMacierzKw<TYP,ROZM>::odwroc() const
 {
  TMacierzKw pom=*this;
@@ -245,7 +245,7 @@ TMacierzKw<TYP,ROZM> TMacierzKw<TYP,ROZM>::odwroc() const
  }
 
  return TMacierzKw(W);
-}
+}*/
 
 /*
   metoda zwroc_kolumne zwraca wektor,
@@ -282,14 +282,58 @@ metoda wyznacznik zwraca liczbe double,
 ktora jest wyznacznikiem danej miacierzy
 */
 template <typename TYP, int ROZM>
-TYP TMacierzKw<TYP,ROZM>:: wyznacznik()
+TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
 {
   TMacierzKw pom=*this;
-  TYP mnoz=1.0; //kiedys LZespolona
-  TYP wyn=1.0; //kiedys LZespolona
-  int w, k, i;
+  TYP mnoz, wyn; //kiedys LZespolona
+  //mnoz=0.0;
+  wyn=1.0;//kiedys LZespolona
+  double eps=0.000000001;
+  int w, k, i, x, licznik;
+  licznik=0;
 
   for (k=0; k<ROZMIAR-1; k++)
+  {
+
+      for (w=k+1; w<ROZMIAR; w++)
+      {
+        if(pom[k][k]>eps || pom[k][k]*(-1.0)>eps)
+        {
+          mnoz=pom[w][k]/pom[k][k];
+          for(x=0; i<ROZMIAR; i++)
+          {
+            pom[w][x]=pom[w][x]-(pom[k][x]*mnoz);
+          }
+        }
+
+      else
+      {
+        for(i=k+1; i<ROZMIAR; i++)
+        {
+          if(pom[i][k]>eps || pom[i][k]*(-1.0)>eps)
+          {
+            TWektor<TYP,ROZM> buf;
+            buf=pom[k];
+            pom[k]=pom[x];
+            pom[x]=buf;
+            licznik++;
+            x=ROZMIAR;
+          }
+        }
+      }
+    }
+    cout<<"POM:"<<endl<<pom<<endl;
+  }
+  //cout<<"POM:"<<endl<<pom<<endl;
+ for(int j=0; j<ROZMIAR; j++)
+  {
+    wyn=wyn*pom[j][j];
+    if(licznik%2!=0)
+    wyn=wyn*(-1.0);
+  }
+
+
+  /*for (k=0; k<ROZMIAR-1; k++)
   {
     for (w=k+1; w<ROZMIAR; w++)
     {
@@ -305,7 +349,7 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik()
  for(int j=0; j<ROZMIAR; j++)
   {
     wyn=wyn*pom[j][j];
-  }
+  }*/
 
   return wyn;
 }

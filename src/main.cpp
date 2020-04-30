@@ -40,11 +40,16 @@ int main()
 
 
 //main do szablonu, ruszac//
-TMacierz<double,5> M1, M2;
-
-
-/*if(plik1.good() == true) // jesli plik zostal poprawnie otwarty
+TMacierzKw<double,5> M1, M2;
+double wyz;
+/*TMacierzKw<LZespolona, 5> M1, M2;
+TWektor<LZespolona,5> W;
+LZespolona wyz;
+fstream plik1, plik2;
+plik1.open("w1.txt", ios:: in);
+if(plik1.good() == true) // jesli plik zostal poprawnie otwarty
 {
+  cout<<"otwarte";
   plik1>>M1;            //UkladRownanL przybiera dane zawarte w pliku
 }
 plik2.open("w2.txt", ios:: in); //otwieram plik z danymi
@@ -52,7 +57,23 @@ if(plik2.good() == true) // jesli plik zostal poprawnie otwarty
 {
   plik2>>M2;             //UkladRownanL przybiera dane zawarte w pliku
 }*/
-cout<<M1;
+
+/*cin>>W;
+cout<<M1<<endl<<endl;
+cout<<M2<<endl;
+cout<<endl<<"+ "<<M1+M2<<endl;
+cout<<"- "<<M1-M2<<endl<<endl;
+cout<<"* "<<M1*M2<<endl<<endl;
+cout<<"*w "<<M1*W<<endl<<endl;
+cout<<"*2 "<<M1*2.0<<endl<<endl;
+W=M1.zwroc_kolumne(1);
+cout<<"k1: "<<W<<endl<<endl;
+M2.zmien_kolumne(0,W);
+cout<<"k0: "<<M2<<endl<<endl;*/
+cin>>M1;
+cout<<endl<<M1<<endl;
+wyz=M2.wyznacznik();
+cout<<"wyz: "<<wyz<<endl;
 
 cout<<"KONIEC"<<endl;
 

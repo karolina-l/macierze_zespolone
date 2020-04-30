@@ -6,18 +6,26 @@ CPPFLAGS= -c -g -Iinc -Wall -pedantic
 __start__: uklad_rownan
 	./uklad_rownan
 
-uklad_rownan: obj/main.o obj/UkladRownanLiniowych.o obj/Macierz.o obj/TWektor.o obj/mym.o\
+uklad_rownan: obj/main.o  obj/TMacierz.o obj/TWektor.o obj/mym.o\
 													obj/LZespolona.o
 	g++ -Wall -pedantic -o uklad_rownan obj/main.o obj/Wektor.o\
-                					obj/Macierz.o obj/UkladRownanLiniowych.o obj/mym.o obj/LZespolona.o
+                					obj/TMacierz.o  obj/mym.o obj/LZespolona.o
+
+#uklad_rownan: obj/main.o obj/UkladRownanLiniowych.o obj/TMacierz.o obj/TWektor.o obj/mym.o\
+																										obj/LZespolona.o
+#														g++ -Wall -pedantic -o uklad_rownan obj/main.o obj/Wektor.o\
+													                					obj/TMacierz.o obj/UkladRownanLiniowych.o obj/mym.o obj/LZespolona.o
+
+
+
 	rm -f obj/*.o
 
 obj/main.o: src/main.cpp inc/UkladRownanLiniowych.hh inc/Macierz.hh inc/TWektor.hh\
         inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 
-obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh
-	g++ ${CPPFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
+#obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh
+#	g++ ${CPPFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
 
 obj/TMacierz.o: src/TMacierz.cpp inc/TMacierz.hh inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/TMacierz.o src/TMacierz.cpp

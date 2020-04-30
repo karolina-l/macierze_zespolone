@@ -19,7 +19,7 @@ LZespolona::LZespolona(double l, double m)
  LZespolona LZespolona::operator = (double l)
  {
    re=l;
-   im=0.0;
+   im=l;
    return *this;
  }
 

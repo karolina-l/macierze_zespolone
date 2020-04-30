@@ -4,6 +4,7 @@
 #include "rozmiar.h"
 #include "TWektor.hh"
 #include <iostream>
+#include"LZespolona.hh"
 
 using namespace std;
 
@@ -34,10 +35,10 @@ class TMacierzKw  {
   const TMacierzKw  operator * (const TMacierzKw & M);
   const TWektor<TYP, ROZM> operator * (const TWektor<TYP, ROZM> & W);
   const TMacierzKw  operator * (double l);
-  TMacierzKw  odwroc() const;
+  //TMacierzKw  odwroc() const;
   TWektor<TYP, ROZM>  zwroc_kolumne(int ind); //dla interpretacji wierszowej
   void zmien_kolumne(int ind, TWektor<TYP, ROZM> W); //dla interpretacji wierszowej
-  TYP wyznacznik();
+  TYP wyznacznik()const;
   TMacierzKw transponuj() const;
 };
 
