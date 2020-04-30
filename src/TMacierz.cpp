@@ -260,7 +260,7 @@ TWektor<TYP,ROZM> TMacierzKw<TYP,ROZM>:: zwroc_kolumne(int ind)
   {
     zwr[i]=mtx[i][ind];
   }
-  return TWektor(zwr);
+  return TWektor<TYP,ROZM>(zwr);
 }
 
 /*
