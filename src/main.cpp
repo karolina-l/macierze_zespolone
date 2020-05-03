@@ -1,10 +1,6 @@
 #include <iostream>
 #include <fstream>
-//#include "Wektor.hh"
-//#include "TMacierz.hh"
 #include "rozmiar.h"
-//#include "UkladRownanLiniowych.hh"
-//#include "TWektor.hh"
 #include "mym.cpp"
 #include "LZespolona.hh"
 
@@ -15,59 +11,43 @@ using namespace std;
 int main()
 {
   ////MAIN DO PROGRAMU NIE RUSZAĆ////
-/*  //deklaracja danych
-  UkladRownanL Uk;
-  Wektor wynik;
-  double blad;
+ //deklaracja danych
+  char znacznik;
   fstream plik;
 
 
-  plik.open("plik.txt", ios:: in); //otwieram plik z danymi
+  plik.open("w1.txt", ios:: in); //otwieram plik z danymi
+  cout<<"otwieram\n";
   if(plik.good() == true) // jesli plik zostal poprawnie otwarty
   {
-    plik>>Uk;             //UkladRownanL przybiera dane zawarte w pliku
+    znacznik=getchar();
+    cout<<znacznik<<endl;
+    /*switch(znacznik)
+    {
+      case 'r':
+      {
+        TUkladRownanL<double,5> ukl;
+        TWektor<double, 5> wynik;
+        plik >> ukl;
+        cout<<ukl<<endl;
+        wynik=ukl.oblicz();
+        cout<<"wynik: "<<endl;
+
+      }
+      case 'z':
+      {
+        TUkladRownanL<LZespolona,5> ukl;
+        TWektor<LZespolona, 5> wynik;
+        plik >> ukl;
+        cout<<ukl<<endl;
+        wynik=ukl.oblicz();
+        cout<<"wynik: "<<endl;
+
+      }
+      default:
+      cerr<<"Brak poprawnego znacznika typu danych"<<endl;
+    }*/
   }
-  cout<<endl<<Uk<<endl;   //wypisanieukladu rownan
-  wynik=Uk.oblicz();      //rozwiaanie ukladu rownan
-  blad=Uk.blad(wynik);    //wyznaczenie bledu przyblizen
-  cout<<"wynik "<<wynik<<endl; //wypisanie rozwiazania
-  cout<<"blad "<<blad<<endl;   //wypisanie wartosci bledu
   plik.close();            //zamkniecie pliku
-*/
-////MAIN DO PROGRAMU NIE RUSZAĆ////
-
-/*fstream plik1, plik2;
-plik1.open("w1.txt", ios:: in);
-if(plik1.good() == true) // jesli plik zostal poprawnie otwarty
-{
-  cout<<"otwarte";
-  plik1>>M1;            //UkladRownanL przybiera dane zawarte w pliku
-}
-plik2.open("w2.txt", ios:: in); //otwieram plik z danymi
-if(plik2.good() == true) // jesli plik zostal poprawnie otwarty
-{
-  plik2>>M2;             //UkladRownanL przybiera dane zawarte w pliku
-}
-*/
-
-
-//main do szablonu, ruszac//
-TUkladRownanL <double,5> uk;
-TWektor<double, 5> w;
-cin>>uk;
-cout<<endl<<uk<<endl;
-w=uk.oblicz();
-cout<<endl<<w<<endl;
-
-cout<<"KONIEC"<<endl;
-
-
-
-//main do szablonu, ruszac//
-
-
-
-//plik1.close();
-//plik2.close();
   return 0;
 }

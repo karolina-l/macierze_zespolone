@@ -1,7 +1,7 @@
 #
 #  To sa opcje dla kompilacji
 #
-CPPFLAGS= -c -g -Iinc -Wall -pedantic -std=c++17
+CPPFLAGS= -c -g -Iinc -Wall -pedantic
 
 __start__: uklad_rownan
 	./uklad_rownan
@@ -9,7 +9,7 @@ __start__: uklad_rownan
 
 uklad_rownan: obj/main.o obj/TUkladRownanLiniowych.o obj/TMacierz.o obj/TWektor.o obj/mym.o\
 																										obj/LZespolona.o
-											g++ -Wall -pedantic -o -std=c++17 uklad_rownan obj/main.o obj/TWektor.o\
+											g++ -Wall -pedantic -o  uklad_rownan obj/main.o obj/TWektor.o\
 																obj/TMacierz.o obj/TUkladRownanLiniowych.o obj/mym.o obj/LZespolona.o
 
 
