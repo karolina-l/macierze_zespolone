@@ -1,42 +1,39 @@
 #
 #  To sa opcje dla kompilacji
 #
-CPPFLAGS= -c -g -Iinc -Wall -pedantic
+CPPFLAGS= -c -g -Iinc -Wall -pedantic -std=c++17
 
 __start__: uklad_rownan
 	./uklad_rownan
 
-uklad_rownan: obj/main.o  obj/TMacierz.o obj/TWektor.o obj/mym.o\
-													obj/LZespolona.o
-	g++ -Wall -pedantic -o uklad_rownan obj/main.o obj/Wektor.o\
-                					obj/TMacierz.o  obj/mym.o obj/LZespolona.o
 
-#uklad_rownan: obj/main.o obj/UkladRownanLiniowych.o obj/TMacierz.o obj/TWektor.o obj/mym.o\
+uklad_rownan: obj/main.o obj/TUkladRownanLiniowych.o obj/TMacierz.o obj/TWektor.o obj/mym.o\
 																										obj/LZespolona.o
-#														g++ -Wall -pedantic -o uklad_rownan obj/main.o obj/Wektor.o\
-													                					obj/TMacierz.o obj/UkladRownanLiniowych.o obj/mym.o obj/LZespolona.o
+											g++ -Wall -pedantic -o -std=c++17 uklad_rownan obj/main.o obj/TWektor.o\
+																obj/TMacierz.o obj/TUkladRownanLiniowych.o obj/mym.o obj/LZespolona.o
 
 
 
 	rm -f obj/*.o
 
-obj/main.o: src/main.cpp inc/UkladRownanLiniowych.hh inc/Macierz.hh inc/TWektor.hh\
+obj/main.o: src/main.cpp inc/TUkladRownanLiniowych.hh inc/TMacierz.hh inc/TWektor.hh\
         inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 
-#obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh
-#	g++ ${CPPFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
+obj/TUkladRownanLiniowych.o: src/TUkladRownanLiniowych.cpp inc/TUkladRownanLiniowych.hh inc/rozmiar.h
+	g++ ${CPPFLAGS} -o obj/TUkladRownanLiniowych.o src/TUkladRownanLiniowych.cpp
 
 obj/TMacierz.o: src/TMacierz.cpp inc/TMacierz.hh inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/TMacierz.o src/TMacierz.cpp
 
 obj/TWektor.o: src/TWektor.cpp inc/TWektor.hh inc/rozmiar.h
-	g++ ${CPPFLAGS} -o obj/Wektor.o src/Wektor.cpp
+	g++ ${CPPFLAGS} -o obj/TWektor.o src/TWektor.cpp
 
 obj/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
 	g++ ${CPPFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
 
-obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh src/LZespolona.cpp inc/LZespolona.hh inc/TMacierz.hh src/TMacierz.cpp
+obj/mym.o: src/mym.cpp src/TWektor.cpp inc/TWektor.hh src/LZespolona.cpp inc/LZespolona.hh \
+	inc/TMacierz.hh src/TMacierz.cpp inc/TUkladRownanLiniowych.hh src/TUkladRownanLiniowych.cpp
 	g++ ${CPPFLAGS} -o obj/mym.o src/mym.cpp
 
 

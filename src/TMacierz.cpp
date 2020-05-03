@@ -328,32 +328,13 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
     }
     cout<<"POM:"<<endl<<pom<<endl;
   }
-  //cout<<"POM:"<<endl<<pom<<endl;
+  cout<<"POM:"<<endl<<pom<<endl;
  for(int j=0; j<ROZMIAR; j++)
   {
     wyn=wyn*pom[j][j];
     if(licznik%2!=0)
     wyn=wyn*(-1.0);
   }
-
-
-  /*for (k=0; k<ROZMIAR-1; k++)
-  {
-    for (w=k+1; w<ROZMIAR; w++)
-    {
-        mnoz=pom[w][k]/pom[k][k];
-
-      for (i=k; i<ROZMIAR; i++)
-      {
-        pom[w][i]=pom[w][i]-pom[k][i]*mnoz;
-      }
-    }
-  }
-
- for(int j=0; j<ROZMIAR; j++)
-  {
-    wyn=wyn*pom[j][j];
-  }*/
 
   return wyn;
 }
