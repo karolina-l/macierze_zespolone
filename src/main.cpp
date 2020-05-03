@@ -12,7 +12,7 @@ int main()
 {
   ////MAIN DO PROGRAMU NIE RUSZAĆ////
  //deklaracja danych
-  char znacznik;
+
   fstream plik;
 
 
@@ -20,33 +20,41 @@ int main()
   cout<<"otwieram\n";
   if(plik.good() == true) // jesli plik zostal poprawnie otwarty
   {
-    znacznik=getchar();
-    cout<<znacznik<<endl;
-    /*switch(znacznik)
+    switch(plik.get())
     {
       case 'r':
       {
         TUkladRownanL<double,5> ukl;
+        TMacierzKw<double,5> mx;
         TWektor<double, 5> wynik;
         plik >> ukl;
+        mx=ukl.zwroc_macierz();
+        mx=mx.transponuj();
+        ukl.zmien_macierz(mx);
         cout<<ukl<<endl;
         wynik=ukl.oblicz();
-        cout<<"wynik: "<<endl;
+        cout<<"wynik: "<<wynik<<endl;
+        break;
 
       }
       case 'z':
       {
         TUkladRownanL<LZespolona,5> ukl;
+        TMacierzKw<LZespolona,5> mx;
         TWektor<LZespolona, 5> wynik;
         plik >> ukl;
+        mx=ukl.zwroc_macierz();
+        mx=mx.transponuj();
+        ukl.zmien_macierz(mx);
         cout<<ukl<<endl;
         wynik=ukl.oblicz();
-        cout<<"wynik: "<<endl;
+        cout<<"wynik: "<<wynik<<endl;
+        break;
 
       }
       default:
       cerr<<"Brak poprawnego znacznika typu danych"<<endl;
-    }*/
+    }
   }
   plik.close();            //zamkniecie pliku
   return 0;

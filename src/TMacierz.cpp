@@ -291,7 +291,6 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
   double eps=0.000000001;
   int w, k, i, x, licznik;
   licznik=0;
-  cout<<"POM wejście: "<<endl<<pom<<endl;
   for (k=0; k<ROZMIAR-1; k++)
   {
 
