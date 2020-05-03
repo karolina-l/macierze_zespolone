@@ -53,8 +53,11 @@ if(plik2.good() == true) // jesli plik zostal poprawnie otwarty
 
 //main do szablonu, ruszac//
 TUkladRownanL <double,5> uk;
+TWektor<double, 5> w;
 cin>>uk;
 cout<<endl<<uk<<endl;
+w=uk.oblicz();
+cout<<endl<<w<<endl;
 
 cout<<"KONIEC"<<endl;
 

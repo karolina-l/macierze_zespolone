@@ -291,7 +291,6 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
   double eps=0.000000001;
   int w, k, i, x, licznik;
   licznik=0;
-  cout<<"Pierwszy:"<<endl<<pom<<endl;
 
   for (k=0; k<ROZMIAR-1; k++)
   {
@@ -310,10 +309,8 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
 
       else
       {
-        cout<<"fryta"<<endl;
         for(i=k+1; i<ROZMIAR; i++)
         {
-          cout<<"tooooo "<<i<< " je i"<<endl;
           if(pom[i][k]>eps || pom[i][k]*(-1.0)>eps)
           {
             TWektor<TYP,ROZM> buf;
@@ -326,9 +323,8 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
         }
       }
     }
-    cout<<"POM:"<<endl<<pom<<endl;
   }
-  cout<<"POM:"<<endl<<pom<<endl;
+
  for(int j=0; j<ROZMIAR; j++)
   {
     wyn=wyn*pom[j][j];
