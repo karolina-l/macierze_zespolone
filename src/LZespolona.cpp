@@ -203,7 +203,7 @@ double LZespolona:: modul() const
 
 bool   LZespolona::operator > (double l)const
 {
-  if(re>l && im>l)
+  if(this->modul()>l)
     return true;
   else
     return false;

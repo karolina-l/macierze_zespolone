@@ -286,7 +286,7 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
 {
   TMacierzKw pom=*this;
   TYP mnoz, wyn; //kiedys LZespolona
-  //mnoz=0.0;
+  //mnoz=1.0;
   wyn=1.0;//kiedys LZespolona
   double eps=0.000000001;
   int w, k, i, x, licznik;
@@ -301,24 +301,27 @@ TYP TMacierzKw<TYP,ROZM>:: wyznacznik() const
         if(pom[k][k]>eps || pom[k][k]*(-1.0)>eps)
         {
           mnoz=pom[w][k]/pom[k][k];
-          for(x=0; i<ROZMIAR; i++)
+          for(x=k; x<ROZMIAR; x++)
           {
             pom[w][x]=pom[w][x]-(pom[k][x]*mnoz);
+
           }
         }
 
       else
       {
+        cout<<"fryta"<<endl;
         for(i=k+1; i<ROZMIAR; i++)
         {
+          cout<<"tooooo "<<i<< " je i"<<endl;
           if(pom[i][k]>eps || pom[i][k]*(-1.0)>eps)
           {
             TWektor<TYP,ROZM> buf;
             buf=pom[k];
-            pom[k]=pom[x];
-            pom[x]=buf;
+            pom[k]=pom[i];
+            pom[i]=buf;
             licznik++;
-            x=ROZMIAR;
+            i=ROZMIAR;
           }
         }
       }

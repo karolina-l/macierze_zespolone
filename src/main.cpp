@@ -42,10 +42,10 @@ int main()
 //main do szablonu, ruszac//
 TMacierzKw<double,5> M1, M2;
 double wyz;
-/*TMacierzKw<LZespolona, 5> M1, M2;
-TWektor<LZespolona,5> W;
-LZespolona wyz;
-fstream plik1, plik2;
+//TMacierzKw<LZespolona, 5> M1, M2;
+//TWektor<LZespolona,5> W;
+//LZespolona wyz;
+/*fstream plik1, plik2;
 plik1.open("w1.txt", ios:: in);
 if(plik1.good() == true) // jesli plik zostal poprawnie otwarty
 {
@@ -56,8 +56,8 @@ plik2.open("w2.txt", ios:: in); //otwieram plik z danymi
 if(plik2.good() == true) // jesli plik zostal poprawnie otwarty
 {
   plik2>>M2;             //UkladRownanL przybiera dane zawarte w pliku
-}*/
-
+}
+*/
 /*cin>>W;
 cout<<M1<<endl<<endl;
 cout<<M2<<endl;
